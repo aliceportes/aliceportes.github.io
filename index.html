@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alice Portes | Data Analyst</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Alice Portes – Aspiring Data Analyst portfolio site with projects in SQL, Python, Power BI and more.">
+  <meta name="author" content="Alice Portes">
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        const bottom = top + section.offsetHeight;
+        if (scrollY >= top && scrollY < bottom) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      // Edge case: if scrolled to the very bottom, force 'contact'
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        current = "contact";
+      }
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+
+  <header>
+  <nav class="navbar">
+    <div class="logo"><a href="#hero">Alice Portes</a></div>
+    <ul class="nav-links">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="resume-btn" href="assets/resume.pdf" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+ <section id="hero" class="hero">
+  <div class="hero-inner">
+    <h1>Hello, I'm Alice</h1>
+    <p>Aspiring Data Analyst passionate about uncovering<br> insights and solving real-world problems.</p>
+    <a href="#projects" class="hero-btn">View My Projects</a>
+  </div>
+  <a href="#about" class="scroll-down">
+  <img src="assets/down-arrow.png" alt="Scroll down">
+</a>
+</section>
+
+ <section id="about" class="about-section fade-in">
+  <div class="about-img">
+    <img src="assets/profile.png" alt="Alice Portes">
+  </div>
+  <div class="about-text">
+    <h2>About Me</h2>
+    <p>I'm an aspiring data analyst with a passion for understanding people, solving problems, and bringing clarity through information. I enjoy exploring datasets and transforming them into stories that inform and inspire. Currently studying Systems Analysis and Development, I'm focused on building practical, data-driven solutions that create real value.</p>
+  </div>
+</section>
+
+<section id="projects" class="section fade-in">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <img src="assets/project-thumbs/olist.jpg" alt="Olist E-commerce Analysis">
+      <h3>Olist E-commerce Analysis</h3>
+      <p>SQL and Power BI project analyzing sales performance, customer behavior, and key delivery metrics</p>
+      <a href="https://github.com/aliceportes/Olist_Ecommerce_Analysis" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="assets/project-thumbs/bank.jpg" alt="Bank Marketing Prediction">
+      <h3>Bank Marketing Prediction</h3>
+      <p>Python project with data cleaning, exploratory analysis, and classification models for campaign response</p>
+      <a href="https://github.com/aliceportes/Bank_Marketing_Campaign" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="assets/project-thumbs/airbnb.jpg" alt="Seattle Airbnb Market">
+      <h3>Seattle Airbnb Market</h3>
+      <p>SQL and Power BI used to explore pricing trends, room types, and seasonal availability in Seattle</p>
+      <a href="https://github.com/aliceportes/Seattle_Airbnb_Analysis" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="assets/project-thumbs/retail.jpg" alt="Retail Sales Dashboard">
+      <h3>Retail Sales Dashboard</h3>
+      <p>Excel dashboard with pivot tables, KPIs, slicers, and sales analysis by location and category</p>
+      <a href="https://github.com/aliceportes/Retail_Sales_Excel_Project" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="assets/project-thumbs/diabetes.jpg" alt="Diabetes Prediction">
+      <h3>Diabetes Prediction</h3>
+      <p>Python project including EDA, data preprocessing, and classification models for health outcome prediction</p>
+      <a href="https://github.com/aliceportes/Diabetes_Prediction_Analysis" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="assets/project-thumbs/cyclistic.jpg" alt="R + Tableau Dashboard">
+      <h3>Cyclistic Analysis</h3>
+      <p>R and Tableau used for data wrangling and visualization to analyze rider behavior and trip patterns</p>
+      <a href="https://github.com/aliceportes/Cyclistic_Case_Study_Bike_Share_Analysis" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+
+  <section id="contact" class="section contact-section fade-in">
+    <h2 class="centered">Contact</h2>
+    <p class="centered">Have a question, idea, or opportunity? Feel free to reach out.<br> I’d love to hear from you.</p>
+    <div class="social-links">
+      <a href="https://github.com/aliceportes" target="_blank"><img src="assets/github.png" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/alice-portes-19708b239/" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+      <a href="mailto:alice.g.portes@gmail.com"><img src="assets/email.png" alt="Email"></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Alice Portes.</p>
+  </footer>
+    <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    faders.forEach(fadeEl => {
+      appearOnScroll.observe(fadeEl);
+    });
+  </script>
+</body>
+</body>
+</html>
